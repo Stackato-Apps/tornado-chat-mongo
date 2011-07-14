@@ -15,7 +15,7 @@ src="http://templates.activestate.com/images/stackato-ribbon/bottom-right.png"><
     <div id="nav">
       <b>{{ escape(current_user["name"]) }}</b> -
       <a href="/auth/logout">{{ _("Sign out") }}</a> -
-      <span>Using ActivePython, Tornado & MongoDB [{{pymongopath}}]</span>
+      <span>Using ActivePython, Tornado & MongoDB</span>
     </div>
     <div id="body">
       <div id="inbox">
@@ -31,7 +31,7 @@ src="http://templates.activestate.com/images/stackato-ribbon/bottom-right.png"><
               <td style="padding-left:5px">
                 <input type="submit" value="{{ _("Post") }}"/>
                 <input type="hidden" name="next" value="{{ request.path }}"/>
-                {{ xsrf_form_html() }}
+                {% raw xsrf_form_html() %}
               </td>
             </tr>
           </table>
