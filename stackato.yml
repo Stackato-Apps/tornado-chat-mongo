@@ -1,0 +1,4 @@
+name: tornado-chat-mongo
+framework:
+  type: wsgi
+  startcmd: python app.py
