@@ -7,11 +7,10 @@ This version persists chat messages using the Mongo database.
 
 ## Local development
 
-    pip install --user pycurl
-    pypm install -r requirements.
+    pip install --user -r requirements.pip
+    pypm install -r requirements.txt
     python app.py
 
 ## Deploying to Stackato
 
-    stackato push tornado-chat-mongo
-    # NOTE: Be sure to add a MongoDB service
+    stackato push -n
