@@ -1,8 +1,8 @@
-name: tornado-chat-mongo
+name: chat-mongo
 
 framework:
   type: python
   startcmd: python app.py
 
 services:
-  mongodb: mongb-chat
+  mongodb: mongo-chat
