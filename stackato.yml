@@ -1,8 +1,7 @@
 name: chat-mongo
 
-framework:
-  type: python
-  startcmd: python app.py
+processes:
+  web: python app.py
 
 services:
   mongodb: mongo-chat
