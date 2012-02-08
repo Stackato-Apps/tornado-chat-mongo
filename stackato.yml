@@ -1,5 +1,8 @@
 name: chat-mongo
 
+framework:
+  type: python
+
 processes:
   web: python app.py
 
