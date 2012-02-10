@@ -1,2 +1,4 @@
-pymongo
-tornado
+# see requirements-pypm.txt for full dependencies.
+
+# pypm does not have pycurl. so install from source.
+pycurl

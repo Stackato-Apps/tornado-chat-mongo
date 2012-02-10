@@ -8,3 +8,6 @@ processes:
 
 services:
   mongodb: mongo-chat
+
+min_version:
+  server: 0.9.0
