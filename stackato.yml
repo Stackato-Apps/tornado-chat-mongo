@@ -6,8 +6,15 @@ framework:
 processes:
   web: python app.py
 
+requirements:
+  pypm:
+    - tornado
+    - pymongo
+  pip:
+    - pycurl
+
 services:
   mongodb: mongo-chat
 
 min_version:
-  server: 0.9.0
+  server: 0.9.0.143
