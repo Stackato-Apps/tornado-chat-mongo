@@ -7,11 +7,9 @@ processes:
   web: python app.py
 
 requirements:
-  pypm:
-    - tornado
-    - pymongo
-  pip:
-    - pycurl
+  pypm: [tornado, pymongo]
+  pip: [pycurl]
 
 services:
-  mongodb: mongo-chat
+  mongo-chat: mongodb
+  data: filesystem

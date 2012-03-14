@@ -30,29 +30,10 @@ from tornado.options import define, options
 
 import pymongo
 
-print(sys.executable)
-print(pymongo.__file__)
+define("port", default=int(os.environ.get('PORT', 8888)),
+       help="run on the given port", type=int)
 
-# Utility code to retrieve Cloud Foundry production service information
-if 'VMC_APP_PORT' in os.environ:
-    port = int(os.getenv('VMC_APP_PORT'))
-    j = json.loads(os.getenv('VMC_SERVICES'))
-    print(j)
-    mongodb = j[0]
-else:
-    # this is localhost
-    port = 8888
-    mongodb = dict(options=dict(hostname='localhost',
-                                port=27017,
-                                db='db'))
-
-define("port", default=port, help="run on the given port", type=int)
-
-if 'username' in mongodb['options']:
-    mongouri = 'mongodb://{username}:{password}@{hostname}:{port}/{db}'
-else:
-    mongouri = 'mongodb://{hostname}:{port}'
-mongouri = mongouri.format(**mongodb['options'])
+mongouri = os.environ.get('MONGODB_URL', 'mongodb://localhost:27027')
 print('Connecting to %s' % mongouri)
 mongo = pymongo.Connection(mongouri)
 db = mongo.db
