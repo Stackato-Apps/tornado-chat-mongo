@@ -1,5 +1,4 @@
-name: chat-mongo
-
+name: tornado-chat
 framework:
   type: python
 
@@ -14,4 +13,4 @@ requirements:
     - pycurl
 
 services:
-  mongodb: mongo-chat
+  tornado-chat-mongodb: mongodb
