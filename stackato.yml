@@ -1,16 +1,15 @@
 name: tornado-chat
 framework:
   type: python
-
 processes:
   web: python app.py
-
 requirements:
   pypm:
     - tornado
     - pymongo
   pip:
     - pycurl
-
+min_version:
+  client: 1.4.3
 services:
-  tornado-chat-mongodb: mongodb
+  ${name}-db: mongodb
