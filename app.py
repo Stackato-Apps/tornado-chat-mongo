@@ -34,11 +34,11 @@ print(sys.executable)
 print(pymongo.__file__)
 
 # Utility code to retrieve Cloud Foundry production service information
-if 'VMC_APP_PORT' in os.environ:
-    port = int(os.getenv('VMC_APP_PORT'))
-    j = json.loads(os.getenv('VMC_SERVICES'))
+if 'VCAP_APP_PORT' in os.environ:
+    port = int(os.getenv('VCAP_APP_PORT'))
+    j = json.loads(os.getenv('VCAP_SERVICES'))
     print(j)
-    mongodb = j[0]
+    mongodb = j['mongodb'][0]
 else:
     # this is localhost
     port = 8888
@@ -48,11 +48,11 @@ else:
 
 define("port", default=port, help="run on the given port", type=int)
 
-if 'username' in mongodb['options']:
+if 'username' in mongodb['credentials']:
     mongouri = 'mongodb://{username}:{password}@{hostname}:{port}/{db}'
 else:
     mongouri = 'mongodb://{hostname}:{port}'
-mongouri = mongouri.format(**mongodb['options'])
+mongouri = mongouri.format(**mongodb['credentials'])
 print('Connecting to %s' % mongouri)
 mongo = pymongo.Connection(mongouri)
 db = mongo.db

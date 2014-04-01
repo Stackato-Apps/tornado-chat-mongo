@@ -4,6 +4,8 @@ framework:
 processes:
   web: python app.py
 requirements:
+  ubuntu:
+    - libcurl4-gnutls-dev
   pypm:
     - tornado
     - pymongo
