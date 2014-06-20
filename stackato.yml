@@ -1,4 +1,4 @@
-name: tornado-chat
+name: tornado-chat-mongo
 framework:
   type: python
 processes:
