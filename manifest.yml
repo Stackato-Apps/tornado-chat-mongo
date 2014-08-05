@@ -1,0 +1,11 @@
+applications:
+- name: tornado-chat-mongo
+  services:
+    ${name}-db:
+      type: mongodb
+  stackato:
+    min_version:
+      client: 1.4.3
+    requirements:
+      ubuntu:
+      - libcurl4-gnutls-dev
